@@ -1,35 +1,16 @@
 {
-  "name": "library",
-  "version": "0.0.0",
-  "authors": [
-    "Jonathan Mills <jonathanfmills@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "name": "cmsfr",
+  "description": "cms bower",
+  "main": "index.js",
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
   "dependencies": {
-    "bootstrap": "~3.3.5",
-    "font-awesome": "~4.4.0"
-  },
-    "overrides": {
-        "bootstrap": {
-            "main": [
-                "dist/js/bootstrap.js",
-                "dist/css/bootstrap.css",
-                "less/bootstrap.less"
-            ]
-        },
-        "font-awesome": {
-            "main": [
-                "less/font-awesome.less",
-                "css/font-awesome.min.css",
-                "scss/font-awesome.scss"
-            ]
-        }
-    }
+    "jquery": "^2.2.1",
+    "toastr": "^2.1.2",
+    "angular": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
 }
