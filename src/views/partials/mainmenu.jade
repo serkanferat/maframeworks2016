@@ -1,0 +1,25 @@
+nav(class="navbar navbar-default")
+    div(class="container-fluid")
+
+    div(class="navbar-header")
+        a(class="navbar-brand", href="/", title="brand") CMS
+    div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+        ul(class="nav navbar-nav")
+            li
+                a(class="", href="/", title="home") Home
+            li
+                a(class="", href="/auth/login", title="login") Login
+            li
+                a(class="", href="/auth/register", title="login") Register
+
+        ul(class="nav navbar-nav navbar-right")
+            li(class="dropdown")
+                a(href="#", class="dropdown-toggle", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") User
+                    span(class="caret")
+                ul(class="dropdown-menu")
+                    li
+                        a(href="/users") Users
+                    li
+                        a(href="/auth/login") Login
+                    li
+                        a(href="/auth/register") Register
