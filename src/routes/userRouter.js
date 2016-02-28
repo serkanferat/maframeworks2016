@@ -11,9 +11,7 @@ var async = require('async');
 /* GET users listing. */
 userRouter.get('/', function(req, res, next) {
 Users.find({}).exec(function (err, users) {
-    Posts.find({}).exec(function (err, posts) {
-    res.send(users);
-});
+       res.send(users);
 });
 });
 
