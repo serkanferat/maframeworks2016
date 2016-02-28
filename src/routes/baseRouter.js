@@ -10,12 +10,12 @@ baseRouter.get('/', function(req, res, next) {
 
 baseRouter.get('/admin', function(req, res, next) {
 
-   //if (req.user && req.user.group === "admin"){
+   if (req.user && req.user.group === "admin"){
          res.render('admin');
-   /*}
-    else{
-         res.send(401, 'Unauthorized');
-  }*/;
+   }
+  else{
+      res.send(401, 'Unauthorized');
+    };
 
 });
 

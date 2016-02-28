@@ -23,6 +23,13 @@ Users.remove({}, function(err, data) {
       group: 'user'
     }
   )
+Users.create(
+    {
+      username: 'author',
+      password: 'author',
+      group: 'author'
+    }
+  )
 })
 
 module.exports = Users;
