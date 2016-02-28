@@ -5,9 +5,9 @@ Spring 2016
 
 Content Management System 
 
+authors:
 Yordan, Serkan, Nikolay, Dimitar
 
-authors:
 
 npm install
 bower install
