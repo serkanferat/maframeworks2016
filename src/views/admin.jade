@@ -22,7 +22,19 @@ html( ng-app='CMS')
 						td 
 							a(class="btn btn-success", href="/admin/{{ user._id }}") Edit
 							button(class="btn btn-success", ng-click="deleteUser( user._id )") Delete
-			
+			h2 Posts
+			table( ng-model="Posts", ng-init="getPosts()" class="table")
+				thead
+
+				tbody
+					tr( ng-repeat="post in Posts")
+						td {{ post.title }}
+						td {{ post.content }}
+						td {{ post.postedBy }}
+						td {{ post.comments }}
+						td 
+							a(class="btn btn-success", href="/admin/{{ post._id }}") Edit
+							button(class="btn btn-success", ng-click="deletePost( post._id )") Delete			
 			hr
 			
 			h2 Create user
@@ -37,6 +49,19 @@ html( ng-app='CMS')
 						input(type="password", class="form-control", id="password", name="password", placeholder="Password", ng-model="newuser.password")
 
 				button( ng-click="createUser(newuser)", class="btn btn-small btn-primary") Create User
+
+			h2 Create post
+
+			form
+				div.form-group
+					label(for="title") Title
+						input(type="text", class="form-control", id="title", name="title", placeholder="Title", ng-model="newpost.title", autofocus)
+
+				div.form-group
+					label(for="content") Content
+						input(type="text", class="form-control", id="content", name="content", placeholder="Content", ng-model="newpost.content")
+
+				button( ng-click="createPost(newpost)", class="btn btn-small btn-primary") Create Post
 		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
 		script(type="text/javascript", src="../js/app.module.js")
 		script(type="text/javascript", src="../js/app.controller.js")

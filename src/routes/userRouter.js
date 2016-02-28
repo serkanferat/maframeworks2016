@@ -1,12 +1,20 @@
 var express = require('express');
 var userRouter = express.Router();
 var Users = require('../../src/models/users');
+var Posts = require('../../src/models/posts');
 var mongoose = require('mongoose');
+
+
+var async = require('async');
+
 
 /* GET users listing. */
 userRouter.get('/', function(req, res, next) {
-	Users.find(function (err, results){res.json(results);});
-	
+Users.find({}).exec(function (err, users) {
+    Posts.find({}).exec(function (err, posts) {
+    res.send(users);
+});
+});
 });
 
 /* Create user */

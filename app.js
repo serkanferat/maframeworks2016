@@ -38,11 +38,12 @@ require('./src/config/passport')(app);
 var baseRouter = require('./src/routes/baseRouter');
 var userRouter = require('./src/routes/userRouter');
 var authRouter = require('./src/routes/authRouter');
+var postRouter = require('./src/routes/postRouter');
 
 app.use('/', baseRouter);
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
-
+app.use('/posts', postRouter);
 // ---------------------------------------
 // Database
 // ---------------------------------------
