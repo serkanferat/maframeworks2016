@@ -32,7 +32,9 @@ html(ng-app='CMS')
 						div.form-group
 							label(for='password') Password
 								input(type='password', class='form-control', id='password', name='password', placeholder='Password', ng-model='newuser.password')
-		
+						div.form-group
+							label(for='role') group
+								input(type='text', class='form-control', id='group', name='group', placeholder='admin / user', ng-model='newuser.group')
 						button( ng-click='createUser(newuser)', class='btn btn-small btn-primary') Create User
 
 			div(ng-controller='postController')		
@@ -55,8 +57,8 @@ html(ng-app='CMS')
 						label(for='title') Title
 							input(type='text', class='form-control', id='title', name='title', placeholder='Title', ng-model='newpost.title', autofocus)
 					div.form-group
-						label(for='password') Password
-							input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.contet')
+						label(for='password') Content
+							input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
 					button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
 
 	

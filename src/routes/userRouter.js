@@ -21,10 +21,11 @@ userRouter.route('/').post(function (req, res) {
 		mongoose.createConnection('localhost', 'CMS');
 		var user = {
 			username: req.body.username,
-			password: req.body.password
+			password: req.body.password,
+            group: req.body.group,
 		};
 	
-		if (typeof req.body.username === "undefined" || typeof req.body.password === "undefined")
+		if (typeof req.body.username === "undefined" || typeof req.body.password === "undefined"|| typeof req.body.group === "undefined")
 		{
 			res.json({message:"Error"});
 		}else

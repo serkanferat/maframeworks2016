@@ -18,7 +18,7 @@ postRouter.route('/').post(function (req, res) {
 			content: req.body.content
 		};
 	
-		if (typeof req.body.username === "undefined" || typeof req.body.password === "undefined")
+		if (typeof req.body.title === "undefined" || typeof req.body.content === "undefined")
 		{
 			res.json({message:"Error"});
 		}else

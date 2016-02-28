@@ -8,7 +8,7 @@ html( ng-app='CMS')
 	body(ng-controller='postController')
 		div.container
 			include partials/mainmenu
-			form( ng-init="getPost('" + userid + "')")
+			form( ng-init="getPost('" + postid + "')")
 				div.form-group
 					label(for="title") Title
 						input(type="text", class="form-control", id="title", name="title",ng-model="Post.title", autofocus)
