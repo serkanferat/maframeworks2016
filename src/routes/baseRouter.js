@@ -24,8 +24,8 @@ baseRouter.get('/admin/:userid', function(req, res, next) {
 });
 
 //???
-//baseRouter.get('/admin/:postid', function(req, res, next) {
-//  res.render('post-edit', { postid: req.params.postid });
-//});
+baseRouter.get('/posts/:postid', function(req, res, next) {
+  res.render('post-edit', { postid: req.params.postid });
+});
 
 module.exports = baseRouter;

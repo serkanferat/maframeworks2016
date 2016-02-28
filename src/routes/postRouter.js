@@ -9,7 +9,7 @@ postRouter.get('/', function(req, res, next) {
 	
 });
 
-///* Create user */
+///* Create post */
 postRouter.route('/').post(function (req, res) {
 	
 		mongoose.createConnection('localhost', 'CMS');

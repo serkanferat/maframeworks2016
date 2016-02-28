@@ -1,0 +1,26 @@
+doctype html
+html( ng-app='CMS')
+	head
+		title= title
+		link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap.css")
+		link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap-theme.css")
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body(ng-controller='postController')
+		div.container
+			include partials/mainmenu
+			form( ng-init="getPost('" + userid + "')")
+				div.form-group
+					label(for="title") Title
+						input(type="text", class="form-control", id="title", name="title",ng-model="Post.title", autofocus)
+
+				div.form-group
+					label(for="content") Content
+						input(type="text", class="form-control", id="content", name="content",  ng-model="Post.content")
+
+				button( ng-click="updatePost(Post)", class="btn btn-small btn-primary") Update Post
+
+		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
+		script(type="text/javascript", src="../js/app.module.js")
+		script(type="text/javascript", src="../js/app.postcontroller.js")
+		script(type="text/javascript", src="../js/app.postservice.js")
+
