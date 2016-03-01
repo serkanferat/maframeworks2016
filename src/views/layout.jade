@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		title= title
+		link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap.css")
+		link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap-theme.css")
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body
+		include partials/mainmenu
+		div.container
+
+			block content
+		script(type="text/javascript", src="../bower_modules/jquery/dist/jquery.js")
+		script(type="text/javascript", src="../bower_modules/bootstrap/dist/js/bootstrap.js")
