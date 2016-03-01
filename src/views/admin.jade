@@ -1,0 +1,71 @@
+doctype html
+html(ng-app='CMS')
+	head
+		title= title
+		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap-theme.css')
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body
+		div.container
+			include partials/mainmenu
+			div(ng-controller='userController')
+					h2 Users
+					table( ng-model='Users', ng-init='getUsers()' class='table')
+						thead
+						
+						tbody
+							tr( ng-repeat='user in Users')
+								td {{ user._id }}
+								td {{ user.username }}
+								td {{ user.password }}
+								td {{ user.group }}
+								td 
+									a(class='btn btn-success', href='/admin/{{ user._id }}') Edit
+									button(class='btn btn-success', ng-click='deleteUser( user._id )') Delete
+					h2 Create user
+		
+					form
+						div.form-group
+							label(for='userName') Username
+								input(type='text', class='form-control', id='userName', name='userName', placeholder='Username', ng-model='newuser.username', autofocus)
+		
+						div.form-group
+							label(for='password') Password
+								input(type='password', class='form-control', id='password', name='password', placeholder='Password', ng-model='newuser.password')
+						div.form-group
+							label(for='role') group
+								input(type='text', class='form-control', id='group', name='group', placeholder='admin / user', ng-model='newuser.group')
+						button( ng-click='createUser(newuser)', class='btn btn-small btn-primary') Create User
+
+			div(ng-controller='postController')		
+				h2 Posts
+				table( ng-model='Posts', ng-init='getPosts()' class='table')
+					thead
+	
+					tbody
+						tr( ng-repeat='post in Posts')
+							td {{ post.title }}
+							td {{ post.content }}
+							td {{ post.postedBy }}
+							td {{ post.comments }}
+							td 
+								a(class='btn btn-success', href='/posts/{{ post._id }}') Edit
+								button(class='btn btn-success', ng-click='deletePost( post._id )') Delete
+				h2 Create Post
+				form
+					div.form-group
+						label(for='title') Title
+							input(type='text', class='form-control', id='title', name='title', placeholder='Title', ng-model='newpost.title', autofocus)
+					div.form-group
+						label(for='password') Content
+							input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
+					button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
+
+	
+			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
+			script(type='text/javascript', src='../js/app.module.js')
+			script(type='text/javascript', src='../js/app.usercontroller.js')
+			script(type='text/javascript', src='../js/app.userservice.js')
+			script(type='text/javascript', src='../js/app.postcontroller.js')
+			script(type='text/javascript', src='../js/app.postservice.js')
+			
