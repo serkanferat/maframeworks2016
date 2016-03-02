@@ -14,8 +14,7 @@
    
     var modelPost = function(data){
       $scope.Post = data;
-        console.log($scope.Post);
-console.log($scope.post);
+
     }
 	
    

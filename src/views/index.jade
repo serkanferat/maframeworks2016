@@ -1,5 +1,43 @@
-extends layout
+doctype html
+html(ng-app='CMS')
+	head
+		title= title
+		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap-theme.css')
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body
+		include partials/mainmenu
+		div.container
 
-block content
-  h1= title
-  p Welcome to The Homepage
+
+								
+
+			div(ng-controller='postController')
+				h2 Posts
+				table( ng-model='Posts', ng-init='getPosts()' class='table table-bordered table-striped')
+					thead
+						td title
+						td description
+						td author
+						td comments
+						td actions
+					tbody
+						tr( ng-repeat='post in Posts')
+							td {{ post.title }}
+							td {{ post.content }}
+							td {{ post.postedBy }}
+							td {{ post.comments }}
+							td
+								a(class='btn btn-success', href='/posts/{{ post._id }}') Read Post
+
+
+
+			h4 Please Log In to Post or Comment            
+
+
+			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
+			script(type='text/javascript', src='../js/app.module.js')
+			script(type='text/javascript', src='../js/app.usercontroller.js')
+			script(type='text/javascript', src='../js/app.userservice.js')
+			script(type='text/javascript', src='../js/app.postcontroller.js')
+			script(type='text/javascript', src='../js/app.postservice.js')
