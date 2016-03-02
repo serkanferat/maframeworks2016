@@ -4,21 +4,21 @@
 
 		
 		var getPosts = function(){
-			return $http.get("/posts")
+			return $http.get("/api/posts/")
 						.then(function(response){
 							return response.data;
 						})
 		};
 		
 		var getPost = function(postid){
-			return $http.get("/posts/" + postid)
+			return $http.get("/api/posts/" + postid)
 						.then(function(response){
 							return response.data;
 						})
-		};
+		};	
 		
 		var createPost = function(post){
-			return $http.post("/posts", post)
+			return $http.post("/api/posts/", post)
 						.then(function(response){
 							return response.data;
 						})
@@ -26,7 +26,7 @@
 		
 	
 		var deletePost = function(postid){
-			return $http.delete("/posts/" + postid)
+			return $http.delete("/api/posts/" + postid)
 						.then(function(response){
 							return response.data;
 						})
@@ -34,7 +34,7 @@
 		
 		
 		var updatePost = function(post){
-			return $http.put("/posts/" + post._id, {title: post.title, content: post.content})
+			return $http.put("/api/posts/" + post._id, {title: post.title, content: post.content})
 						.then(function(response){
 							return response.data;
 						})

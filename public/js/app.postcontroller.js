@@ -14,6 +14,8 @@
    
     var modelPost = function(data){
       $scope.Post = data;
+        console.log($scope.Post);
+console.log($scope.post);
     }
 	
    
@@ -24,8 +26,10 @@
 	      
 	
 	$scope.getPost = function(postid){
+
     	postService.getPost(postid)
 			.then(modelPost);
+      
     }
 	
 	

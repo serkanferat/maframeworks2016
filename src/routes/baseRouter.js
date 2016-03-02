@@ -20,10 +20,11 @@ baseRouter.get('/admin', function(req, res, next) {
 });
 
 baseRouter.get('/admin/:userid', function(req, res, next) {
+
   res.render('admin-edit', { userid: req.params.userid });
 });
 
-//???
+
 baseRouter.get('/posts/:postid', function(req, res, next) {
   res.render('post-edit', { postid: req.params.postid });
 });

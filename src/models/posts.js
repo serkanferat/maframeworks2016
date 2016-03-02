@@ -13,7 +13,8 @@ var PostsSchema = {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Users'
         }
-    }]
+    }],
+
 };
 
 var Posts = mongoose.model("Posts", PostsSchema, "posts");

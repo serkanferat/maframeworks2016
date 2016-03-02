@@ -43,7 +43,7 @@ var postRouter = require('./src/routes/postRouter');
 app.use('/', baseRouter);
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
-app.use('/posts', postRouter);
+app.use('/api/posts/', postRouter);
 // ---------------------------------------
 // Database
 // ---------------------------------------
