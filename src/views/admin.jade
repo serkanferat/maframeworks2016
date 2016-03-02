@@ -22,6 +22,7 @@ html(ng-app='CMS')
 								td 
 									a(class='btn btn-success', href='/admin/{{ user._id }}') Edit
 									button(class='btn btn-success', ng-click='deleteUser( user._id )') Delete
+<<<<<<< Updated upstream
 					h2 Create user
 		
 					form
@@ -36,6 +37,22 @@ html(ng-app='CMS')
 							label(for='role') group
 								input(type='text', class='form-control', id='group', name='group', placeholder='admin / user', ng-model='newuser.group')
 						button( ng-click='createUser(newuser)', class='btn btn-small btn-primary') Create User
+=======
+					.jumbotron
+						h2 Create user
+						form
+							div.form-group
+								label(for='userName') Username
+									input(type='text', class='form-control', id='userName', name='userName', placeholder='Username', ng-model='newuser.username', autofocus)
+
+							div.form-group
+								label(for='password') Password
+									input(type='password', class='form-control', id='password', name='password', placeholder='Password', ng-model='newuser.password')
+							div.form-group
+								label(for='role') group
+									input(type='text', class='form-control', id='group', name='group', placeholder='admin / user', ng-model='newuser.group')
+							button( ng-click='createUser(newuser)', class='btn btn-small btn-primary') Create User
+>>>>>>> Stashed changes
 
 			div(ng-controller='postController')		
 				h2 Posts
@@ -51,6 +68,7 @@ html(ng-app='CMS')
 							td 
 								a(class='btn btn-success', href='/posts/{{ post._id }}') Edit
 								button(class='btn btn-success', ng-click='deletePost( post._id )') Delete
+<<<<<<< Updated upstream
 				h2 Create Post
 				form
 					div.form-group
@@ -60,6 +78,18 @@ html(ng-app='CMS')
 						label(for='password') Content
 							input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
 					button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
+=======
+				.jumbotron
+					h2 Create Post
+					form
+						div.form-group
+							label(for='title') Title
+								input(type='text', class='form-control', id='title', name='title', placeholder='Title', ng-model='newpost.title', autofocus)
+						div.form-group
+							label(for='password') Content
+								input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
+						button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
+>>>>>>> Stashed changes
 
 	
 			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
