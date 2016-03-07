@@ -16,13 +16,6 @@ Users.remove({}, function(err, data) {
       group: 'admin'
     }
   )
- Users.create(
-    {
-      username: 'user',
-      password: 'user',
-      group: 'user'
-    }
-  )
 Users.create(
     {
       username: 'author',

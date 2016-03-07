@@ -9,10 +9,10 @@ html(ng-app='CMS')
 		include partials/mainmenu
 		div.container
 		block content		 
-		h1= title		 								
-		p Welcome to The Homepage
+		h1 My Profile		 								
+		p Welcome to your profile #{user.username} !
 			div(ng-controller='postController')
-				h2 Posts
+				h2 Your Posts
 				table( ng-model='Posts', ng-init='getPosts()' class='table table-bordered table-striped')
 					thead
 						td title
@@ -27,7 +27,7 @@ html(ng-app='CMS')
 							td {{ post.postedBy }}
 							td {{ post.comments }}
 							td
-								a(class='btn btn-success', href='/posts/{{ post._id }}') Read Post
+								a(class='btn btn-success', href='/posts/{{ post._id }}') Edit Post
 				if locals.user
 					h2 Create Post
 					form

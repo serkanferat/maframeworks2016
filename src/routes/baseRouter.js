@@ -5,7 +5,8 @@ var baseRouter = express.Router();
 
 /* GET home page. */
 baseRouter.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  console.log(req.user);
+  res.render('index', { user: req.user });
 });
 
 baseRouter.get('/admin', function(req, res, next) {

@@ -43,12 +43,8 @@ authRouter.route('/login')
 		failureRedirect: '/auth/login'
 	}), function (req, res) {
 		if(req.user && req.user.group === "author"){
-
-		res.redirect('/auth/profile');
-          
-	    }else if(req.user && req.user.group === "user"){
-	      res.render('index');
-	  }
+			res.render('profile',{user:req.user});
+      }
 	  else if(req.user && req.user.group === "admin"){
 	      res.render('admin');
 	  }
