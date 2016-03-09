@@ -12,8 +12,11 @@ var PostsSchema = {
         postedBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Users'
-        }
+        },
+        
     }],
+
+    tags: [String]
 
 };
 
@@ -31,13 +34,16 @@ Posts.remove({}, function(err, data) {
     comments: [{
         text: "Test Comment!",
         postedBy: user._id
-      }]
+      }]    
     }
   )
     });
-
-  });
+  }
+);
 
 })
+
+
+
 
 module.exports = Posts;

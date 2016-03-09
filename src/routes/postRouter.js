@@ -13,9 +13,16 @@ postRouter.get('/', function(req, res, next) {
 postRouter.route('/').post(function (req, res) {
 	
 		mongoose.createConnection('localhost', 'CMS');
+
+
+		console.log(req.body);
+
+
+
 		var post = {
 			title: req.body.title,
 			content: req.body.content
+			
 		};
 	
 		if (typeof req.body.title === "undefined" || typeof req.body.content === "undefined")

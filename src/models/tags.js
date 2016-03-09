@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
-var PostsSchema = {
+var TagsSchema = {
     name: String
 };
 
-var Tags = mongoose.model("Tags", PostsSchema, "tags");
+var Tags = mongoose.model("Tags", TagsSchema, "tags");
 
 Tags.remove({}, function(err, data) {
     Tags.create(

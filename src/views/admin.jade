@@ -51,6 +51,7 @@ html(ng-app='CMS')
 						td content
 						td author
 						td comments
+						td tags
 						td actions
 					tbody
 						tr( ng-repeat='post in Posts')
@@ -58,6 +59,7 @@ html(ng-app='CMS')
 							td {{ post.content }}
 							td {{ post.postedBy }}
 							td {{ post.comments }}
+							td {{ post.tags }}
 							td
 								a(class='btn btn-success', href='/posts/{{ post._id }}') Edit
 								button(class='btn btn-success', ng-click='deletePost( post._id )') Delete
