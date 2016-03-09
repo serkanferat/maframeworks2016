@@ -30,4 +30,9 @@ baseRouter.get('/posts/:postid', function(req, res, next) {
   res.render('post-edit', { postid: req.params.postid });
 });
 
+baseRouter.get('/tags/:tagid', function(req, res, next) {
+  res.render('tag-edit', { tagid: req.params.tagid });
+});
+
+
 module.exports = baseRouter;

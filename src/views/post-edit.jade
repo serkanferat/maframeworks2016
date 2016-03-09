@@ -17,10 +17,10 @@ html( ng-app='CMS')
 					label(for="content") Content
 						input(type="text", class="form-control", id="content", name="content",  ng-model="Post.content")
 
-				button( ng-click="updatePost(Tag)", class="btn btn-small btn-primary") Update Tag
+				button( ng-click="updatePost(Post)", class="btn btn-small btn-primary") Update Post
 
 		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
 		script(type="text/javascript", src="../js/app.module.js")
-		script(type='text/javascript', src='../js/app.tagcontroller.js')
-		script(type='text/javascript', src='../js/app.tagservice.js')
+		script(type="text/javascript", src="../js/app.postcontroller.js")
+		script(type="text/javascript", src="../js/app.postservice.js")
 

@@ -33,7 +33,7 @@
             tagService.createTag(tag);
             tagService.getTags()
                 .then(modelTags);
-            console.log(tag.name);
+
         }
 
 

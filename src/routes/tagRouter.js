@@ -21,13 +21,15 @@ tagRouter.route('/').post(function (req, res) {
     var tag = {
         name: req.body.name
     };
+   
 
-    if (typeof req.body.title === "undefined")
+    if (typeof req.body.name === "undefined")
     {
         res.json({message:"Error"});
     }else
     {
         var newTag = new Tags(tag);
+        
         newTag.save(function (err, post) {
             if (err) res.json({message:"Error"});
             res.json(tag);
@@ -39,6 +41,7 @@ tagRouter.route('/').post(function (req, res) {
 /* Get tag */
 tagRouter.get('/:tagid', function(req, res, next) {
     var tagid = req.params.tagid;
+    console.log(tagid);
     Tags.findOne({_id:tagid},function (err, results){res.json(results);});
 
 });
