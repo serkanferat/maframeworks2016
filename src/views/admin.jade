@@ -72,6 +72,26 @@ html(ng-app='CMS')
 								input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
 						button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
 
+			div(ng-controller='tagController')
+				h2 Tags
+				table( ng-model='Tags', ng-init='getTags()' class='table table-bordered table-striped')
+					thead
+						td Name
+						td actions
+					tbody
+						tr( ng-repeat='tag in Tags')
+							td {{ tag.name }}
+							td
+								a(class='btn btn-success', href='/tags/{{ tag._id }}') Edit
+								button(class='btn btn-success', ng-click='deleteTag( tag._id )') Delete
+				.jumbotron
+					h2 Create Tag
+					form
+						div.form-group
+							label(for='name') Name
+								input(type='text', class='form-control', id='name', name='name', placeholder='Name', ng-model='tag.name', autofocus)
+
+								button( ng-click='createTag(tag)', class='btn btn-small btn-primary') Create Tag
 
 			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
 			script(type='text/javascript', src='../js/app.module.js')
@@ -79,3 +99,5 @@ html(ng-app='CMS')
 			script(type='text/javascript', src='../js/app.userservice.js')
 			script(type='text/javascript', src='../js/app.postcontroller.js')
 			script(type='text/javascript', src='../js/app.postservice.js')
+			script(type='text/javascript', src='../js/app.tagcontroller.js')
+			script(type='text/javascript', src='../js/app.tagservice.js')
