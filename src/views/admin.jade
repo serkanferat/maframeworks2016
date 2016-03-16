@@ -95,6 +95,27 @@ html(ng-app='CMS')
 
 						button(ng-click='createTag(tag)', class='btn btn-small btn-primary') Create Tag
 
+			div(ng-controller='categoryController')
+				h2 Categories
+				table( ng-model='Categories', ng-init='getCategories()' class='table table-bordered table-striped')
+					thead
+						td Name
+						td actions
+					tbody
+						tr( ng-repeat='category in Categories')
+							td {{ category.name }}
+							td
+								a(class='btn btn-success', href='/categories/{{ category._id }}') Edit
+								button(class='btn btn-success', ng-click='deleteCategory( category._id )') Delete
+				.jumbotron
+					h2 Create Category
+					form
+						div.form-group
+							label(for='categoryName') Name
+								input(type='text', class='form-control', id='categoryName', name='categoryName', placeholder='Category name', ng-model='category.name', autofocus)
+
+						button(ng-click='createCategory(category)', class='btn btn-small btn-primary') Create Category
+
 			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
 			script(type='text/javascript', src='../js/app.module.js')
 			script(type='text/javascript', src='../js/app.usercontroller.js')
@@ -103,3 +124,5 @@ html(ng-app='CMS')
 			script(type='text/javascript', src='../js/app.postservice.js')
 			script(type='text/javascript', src='../js/app.tagcontroller.js')
 			script(type='text/javascript', src='../js/app.tagservice.js')
+			script(type='text/javascript', src='../js/app.categorycontroller.js')
+			script(type='text/javascript', src='../js/app.categoryservice.js')

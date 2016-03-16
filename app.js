@@ -40,12 +40,14 @@ var userRouter = require('./src/routes/userRouter');
 var authRouter = require('./src/routes/authRouter');
 var postRouter = require('./src/routes/postRouter');
 var tagRouter = require('./src/routes/tagRouter');
+var categoryRouter = require('./src/routes/categoryRouter');
 
 app.use('/', baseRouter);
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
 app.use('/api/posts/', postRouter);
 app.use('/api/tags/', tagRouter);
+app.use('/api/categories/', categoryRouter);
 // ---------------------------------------
 // Database
 // ---------------------------------------

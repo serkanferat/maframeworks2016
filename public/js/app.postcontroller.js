@@ -34,9 +34,6 @@
 	
 	
 	$scope.createPost = function(post){
-     
-        console.log(  $scope.albumNameArray);
-
     	postService.createPost(post);
 		postService.getPosts()
     		.then(modelPosts);
@@ -44,7 +41,6 @@
 		
 	
 	$scope.updatePost = function(post){
-		console.log(post);
     	postService.updatePost(post);
 		postService.getPost(post.postid)
     		.then(modelPost);

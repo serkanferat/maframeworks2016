@@ -1,0 +1,23 @@
+doctype html
+html( ng-app='CMS')
+    head
+        title= title
+        link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap.css")
+        link(rel="stylesheet", href="../bower_modules/bootstrap/dist/css/bootstrap-theme.css")
+        link(rel='stylesheet', href='../stylesheets/style.css')
+    body(ng-controller='categoryController')
+        div.container
+            include partials/mainmenu
+            form( ng-init="getCategory('" + categoryid + "')")
+                div.form-group
+                    label(for="name") Name
+                        input(type="text", class="form-control", id="name", name="name",ng-model="Category.name", autofocus)
+
+
+                button( ng-click="updateCategory(Category)", class="btn btn-small btn-primary") Update Category
+
+        script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
+        script(type="text/javascript", src="../js/app.module.js")
+        script(type="text/javascript", src="../js/app.categorycontroller.js")
+        script(type="text/javascript", src="../js/app.categoryservice.js")
+

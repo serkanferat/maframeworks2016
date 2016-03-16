@@ -34,5 +34,9 @@ baseRouter.get('/tags/:tagid', function(req, res, next) {
   res.render('tag-edit', { tagid: req.params.tagid });
 });
 
+baseRouter.get('/categories/:categoryid', function(req, res, next) {
+    res.render('category-edit', { categoryid: req.params.categoryid });
+});
+
 
 module.exports = baseRouter;

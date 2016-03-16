@@ -34,7 +34,7 @@ Posts.remove({}, function(err, data) {
     comments: [{
         text: "Test Comment!",
         postedBy: user._id
-      }]    
+      }]
     }
   )
     });
@@ -42,8 +42,6 @@ Posts.remove({}, function(err, data) {
 );
 
 })
-
-
 
 
 module.exports = Posts;
