@@ -18,7 +18,6 @@
         };
 
         var createTag = function(tag){
-            //console.log(tag);
             return $http.post("/api/tags", tag)
                 .then(function(response){
                     return response.data;

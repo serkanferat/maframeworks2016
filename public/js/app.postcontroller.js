@@ -25,7 +25,7 @@
 		   };
    
         $scope.cat_selection=[];
-		  // toggle selection for a given tag name
+		  // toggle selection for a given category name
 		  $scope.toggleCatSelection = function toggleCatSelection(catName) {
 
 		     var idx = $scope.cat_selection.indexOf(catName);
@@ -70,7 +70,7 @@
 
         post.tags = $scope.tag_selection;
         post.categories = $scope.cat_selection;
-    	
+
         postService.createPost(post);
 		postService.getPosts()
     		.then(modelPosts);
