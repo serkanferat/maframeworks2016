@@ -69,8 +69,8 @@
 	
 	$scope.createPost = function(post){
 
-//        post.tags = $scope.tag_selection;
-//        post.categories = $scope.cat_selection;
+        post.tags = $scope.tag_selection;
+        post.categories = $scope.cat_selection;
     	
         postService.createPost(post);
 		postService.getPosts()

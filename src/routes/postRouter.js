@@ -15,7 +15,7 @@ postRouter.route('/').post(function (req, res) {
 		mongoose.createConnection('localhost', 'CMS');
 		console.log(req.body);
 
-
+		
 		if (typeof req.body.title === "undefined" || typeof req.body.content === "undefined")
 		{
 			res.json({message:"Error"});

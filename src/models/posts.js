@@ -16,13 +16,15 @@ var PostsSchema = {
         
     }],
 
-    tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
-	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Categories' }]
+    tags: Array,
+	categories: Array,
+
+//  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
+//	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Categories' }]
+
 };
 
 var Posts = mongoose.model("Posts", PostsSchema, "posts");
-//var Tags = mongoose.model("Tags", TagsSchema, "tags");
-//var Categories = mongoose.model("Categories", CategoriesSchema, "categories");
 
 Posts.remove({}, function(err, data) {
 
