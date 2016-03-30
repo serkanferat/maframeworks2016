@@ -13,14 +13,14 @@ postRouter.get('/', function(req, res, next) {
 postRouter.route('/').post(function (req, res) {
 	
 		mongoose.createConnection('localhost', 'CMS');
-		console.log(req.body);
-
 	
 		if (typeof req.body.title === "undefined" || typeof req.body.content === "undefined")
 		{
 			res.json({message:"Error"});
 		}else{
 		var newPost = new Posts(req.body);
+		newPost.postedBy = req.user;
+
 		newPost.save(function (err, post) {
 			if (err) res.json({message:"Error"});
 			res.json(post);
