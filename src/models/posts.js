@@ -16,12 +16,13 @@ var PostsSchema = {
         
     }],
 
-    tags: Array,
-	categories: Array
-
+    tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
+	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Categories' }]
 };
 
 var Posts = mongoose.model("Posts", PostsSchema, "posts");
+//var Tags = mongoose.model("Tags", TagsSchema, "tags");
+//var Categories = mongoose.model("Categories", CategoriesSchema, "categories");
 
 Posts.remove({}, function(err, data) {
 
@@ -36,8 +37,8 @@ Posts.remove({}, function(err, data) {
         text: "Test Comment!",
         postedBy: user._id
       }],
-	tags:['testtag1','testtag2'],
-	categories:['sports','computers'],
+	tags:[],
+	categories:[],
     }
   )
     });
