@@ -19,6 +19,8 @@ html(ng-app='CMS')
                         td title
                         td description
                         td author
+                        td categories
+                        td tags
                         td comments
                         td actions
                     tbody
@@ -29,6 +31,8 @@ html(ng-app='CMS')
                             td {{ post.title }}
                             td {{ post.content }}
                             td {{ post.postedBy }}
+                            td {{ post.categories }}
+                            td {{ post.tags }}
                             td {{ post.comments }}
                             td
                                 a(class='btn btn-success', href='/posts/{{ post._id }}') Read Post
@@ -47,16 +51,20 @@ html(ng-app='CMS')
                             ul( ng-repeat='tag in Tags')
                                 li
                                     label
-                                        input(ng-model='newpost.tag',value='{{tag.name}}', type='checkbox', name='tag[]')
+                                        input(value='{{tag.name}}', type='checkbox', ng-checked='selection.indexOf(tag.name) > -1', ng-click='toggleTagSelection(tag.name)')
                                         span {{tag.name}}
+                            div(ng-repeat='name in selection' class='selected-item')
+                                {{name}}
+
                     div(ng-controller='categoryController')
                         h2 Choose Categories
                         div( ng-model='Categories', ng-init='getCategories()')
                             ul( ng-repeat='cat in Categories')
                                 li
                                     label
-                                        input(ng-model='newpost.category',value='{{cat.name}}', type='checkbox', name='cat[]')
+                                        input(value='{{cat.name}}', type='checkbox', ng-checked='selection.indexOf(cat.name) > -1', ng-click='toggleCatSelection(cat.name)')
                                         span {{cat.name}}
+
                     button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
 
 

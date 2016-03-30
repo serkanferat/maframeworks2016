@@ -7,6 +7,7 @@
 
     function tagController($scope, tagService){
 
+
         var modelTags = function(data){
             $scope.Tags = data;
         }
