@@ -12,7 +12,8 @@ html(ng-app='CMS')
         h1= title
         p Welcome to The Homepage
             div(ng-controller='postController')
-                h2 Posts
+                
+
                 table( ng-model='Posts', ng-init='getPosts()' class='table table-bordered table-striped')
                     thead
                         td title
@@ -21,7 +22,10 @@ html(ng-app='CMS')
                         td comments
                         td actions
                     tbody
-                        tr( ng-repeat='post in Posts')
+                        h2 Search Post:
+                            input(ng-model='query')
+                        h2 Posts
+                        tr( ng-repeat='post in Posts | filter:query')
                             td {{ post.title }}
                             td {{ post.content }}
                             td {{ post.postedBy }}

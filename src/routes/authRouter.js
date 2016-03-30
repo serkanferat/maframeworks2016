@@ -62,5 +62,4 @@ authRouter.route('/profile')
 		res.json(req.user);
 	});
 
-
 module.exports = authRouter;

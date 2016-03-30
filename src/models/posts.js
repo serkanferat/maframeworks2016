@@ -16,7 +16,8 @@ var PostsSchema = {
         
     }],
 
-    tags: [String]
+    tags: Array,
+	categories: Array
 
 };
 
@@ -34,7 +35,9 @@ Posts.remove({}, function(err, data) {
     comments: [{
         text: "Test Comment!",
         postedBy: user._id
-      }]
+      }],
+	tags:['testtag1','testtag2'],
+	categories:['sports','computers'],
     }
   )
     });
