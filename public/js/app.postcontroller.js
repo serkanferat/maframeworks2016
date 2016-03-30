@@ -64,8 +64,7 @@
     	postService.getPost(postid)
 			.then(modelPost);
       
-    }
-	
+    }	
 	
 	$scope.createPost = function(post){
 
