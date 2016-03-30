@@ -16,7 +16,11 @@ var PostsSchema = {
         
     }],
 
-    tags: [String]
+    tags: Array,
+	categories: Array,
+
+//  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
+//	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Categories' }]
 
 };
 
@@ -34,7 +38,9 @@ Posts.remove({}, function(err, data) {
     comments: [{
         text: "Test Comment!",
         postedBy: user._id
-      }]
+      }],
+	tags:[],
+	categories:[],
     }
   )
     });

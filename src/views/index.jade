@@ -12,19 +12,27 @@ html(ng-app='CMS')
         h1= title
         p Welcome to The Homepage
             div(ng-controller='postController')
-                h2 Posts
+                
+
                 table( ng-model='Posts', ng-init='getPosts()' class='table table-bordered table-striped')
                     thead
                         td title
                         td description
                         td author
+                        td categories
+                        td tags
                         td comments
                         td actions
                     tbody
-                        tr( ng-repeat='post in Posts')
+                        h2 Search Post:
+                            input(ng-model='query')
+                        h2 Posts
+                        tr( ng-repeat='post in Posts | filter:query')
                             td {{ post.title }}
                             td {{ post.content }}
                             td {{ post.postedBy }}
+                            td {{ post.categories }}
+                            td {{ post.tags }}
                             td {{ post.comments }}
                             td
                                 a(class='btn btn-success', href='/posts/{{ post._id }}') Read Post
@@ -38,12 +46,27 @@ html(ng-app='CMS')
                             label(for='password') Content
                                 input(type='text', class='form-control', id='content', name='content', placeholder='content', ng-model='newpost.content')
                     div(ng-controller='tagController')
-                        h2 Tags
+                        h2 Choose Tags
                         div( ng-model='Tags', ng-init='getTags()')
                             ul( ng-repeat='tag in Tags')
                                 li
                                     label
+
+                                        input(value='{{tag.name}}', type='checkbox', ng-checked='selection.indexOf(tag.name) > -1', ng-click='toggleTagSelection(tag.name)')
+
                                         span {{tag.name}}
+                            div(ng-repeat='name in selection' class='selected-item')
+                                {{name}}
+
+                    div(ng-controller='categoryController')
+                        h2 Choose Categories
+                        div( ng-model='Categories', ng-init='getCategories()')
+                            ul( ng-repeat='cat in Categories')
+                                li
+                                    label
+                                        input(value='{{cat.name}}', type='checkbox', ng-checked='selection.indexOf(cat.name) > -1', ng-click='toggleCatSelection(cat.name)')
+                                        span {{cat.name}}
+
                     button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
 
 
@@ -55,3 +78,5 @@ html(ng-app='CMS')
         script(type='text/javascript', src='../js/app.postservice.js')
         script(type='text/javascript', src='../js/app.tagcontroller.js')
         script(type='text/javascript', src='../js/app.tagservice.js')
+        script(type='text/javascript', src='../js/app.categorycontroller.js')
+        script(type='text/javascript', src='../js/app.categoryservice.js')
