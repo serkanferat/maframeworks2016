@@ -9,7 +9,7 @@ authRouter.get('/register', function(req, res, next) {
 });
 authRouter.route('/register').post(function (req, res) {
 	
-		mongoose.createConnection('localhost', 'CMS');
+		//mongoose.createConnection('localhost', 'CMS');
 		var user = {
 			username: req.body.userName,
 			password: req.body.password

@@ -51,7 +51,12 @@ app.use('/api/categories/', categoryRouter);
 // ---------------------------------------
 // Database
 // ---------------------------------------
-mongoose.connect('mongodb://localhost/CMS');
+
+ // mongoose.connect('mongodb://localhost/CMS');
+
+  mongoose.connect('mongodb://nikolay:1234@ds011880.mlab.com:11880/cmsproject');
+
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error'));
 db.once('open', function callback(){
@@ -95,7 +100,7 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 
-var port = 3030;
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("listening to port: " + port);
 })

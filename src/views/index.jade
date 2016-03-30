@@ -43,7 +43,6 @@ html(ng-app='CMS')
                             ul( ng-repeat='tag in Tags')
                                 li
                                     label
-                                        input(ng-model='newpost.tag',value='{{tag.name}}', type='checkbox', name='tag[]')
                                         span {{tag.name}}
                     button( ng-click='createPost(newpost)', class='btn btn-small btn-primary') Create Post
 

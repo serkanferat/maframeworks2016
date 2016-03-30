@@ -17,7 +17,7 @@ tagRouter.get('/', function(req, res, next) {
 /* Create tag */
 tagRouter.route('/').post(function (req, res) {
 
-    mongoose.createConnection('localhost', 'CMS');
+   // mongoose.createConnection('localhost', 'CMS');
     var tag = {
         name: req.body.name
     };

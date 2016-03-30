@@ -17,7 +17,7 @@ categoryRouter.get('/', function(req, res, next) {
 /* Create category */
 categoryRouter.route('/').post(function (req, res) {
 
-    mongoose.createConnection('localhost', 'CMS');
+    //mongoose.createConnection('localhost', 'CMS');
     var category = {
         name: req.body.name
     };

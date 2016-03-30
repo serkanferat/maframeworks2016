@@ -18,7 +18,7 @@ Users.find({}).exec(function (err, users) {
 /* Create user */
 userRouter.route('/').post(function (req, res) {
 	
-		mongoose.createConnection('localhost', 'CMS');
+	//	mongoose.createConnection('localhost', 'CMS');
 		var user = {
 			username: req.body.username,
 			password: req.body.password,

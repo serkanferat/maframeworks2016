@@ -16,7 +16,6 @@
       $scope.Post = data;
 
     }
-	
    
 	$scope.getPosts = function(){
     
@@ -34,6 +33,7 @@
 	
 	
 	$scope.createPost = function(post){
+		console.log(post);
     	postService.createPost(post);
 		postService.getPosts()
     		.then(modelPosts);

@@ -12,7 +12,7 @@ postRouter.get('/', function(req, res, next) {
 ///* Create post */
 postRouter.route('/').post(function (req, res) {
 	
-		mongoose.createConnection('localhost', 'CMS');
+	//	mongoose.createConnection('localhost', 'CMS');
 		console.log(req.body);
 
 		var post = {
