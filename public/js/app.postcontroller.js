@@ -41,7 +41,12 @@
 		     }
 		   };
 
-    var modelPosts = function(data){
+
+      $scope.customFilter = function (dataa) {
+       console.log(dataa);
+      };
+
+      var modelPosts = function(data){
       $scope.Posts = data;
     }
 	
@@ -66,11 +71,10 @@
     }	
 	
 	$scope.createPost = function(post){
-		console.log(post);
-    	postService.createPost(post);
         post.tags = $scope.tag_selection;
         post.categories = $scope.cat_selection;
         postService.createPost(post);
+        console.log(post);
 		postService.getPosts()
     		.then(modelPosts);
     }

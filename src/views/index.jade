@@ -11,8 +11,16 @@ html(ng-app='CMS')
         block content
         h1= title
         p Welcome to The Homepage
-            div(ng-controller='postController')
-                
+        div(ng-controller='postController')
+                h2 Search Post:
+                    input(ng-model='query')
+                div(ng-controller='tagController')
+                    h2 Tags:
+                    div(ng-init='getTags()')
+                        select(ng-model='search', ng-options='tag.name for tag in Tags')
+
+
+
 
                 table( ng-model='Posts', ng-init='getPosts()' class='table table-bordered table-striped')
                     thead
@@ -24,10 +32,9 @@ html(ng-app='CMS')
                         td comments
                         td actions
                     tbody
-                        h2 Search Post:
-                            input(ng-model='query')
+
                         h2 Posts
-                        tr( ng-repeat='post in Posts | filter:query')
+                        tr( ng-repeat='post in Posts | filter:query | filter:search')
                             td {{ post.title }}
                             td {{ post.content }}
                             td {{ post.postedBy }}
@@ -49,14 +56,13 @@ html(ng-app='CMS')
                         h2 Choose Tags
                         div( ng-model='Tags', ng-init='getTags()')
                             ul( ng-repeat='tag in Tags')
-                                li
+                                    li
                                     label
 
                                         input(value='{{tag.name}}', type='checkbox', ng-checked='selection.indexOf(tag.name) > -1', ng-click='toggleTagSelection(tag.name)')
 
                                         span {{tag.name}}
                             div(ng-repeat='name in selection' class='selected-item')
-                                {{name}}
 
                     div(ng-controller='categoryController')
                         h2 Choose Categories

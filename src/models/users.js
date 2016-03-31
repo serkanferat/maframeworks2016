@@ -8,6 +8,8 @@ var Schema = {
 
 var Users = mongoose.model("Users", Schema, "users");
 
+
+
 Users.remove({}, function(err, data) {
   Users.create(
     {
