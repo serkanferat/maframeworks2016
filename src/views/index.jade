@@ -19,6 +19,11 @@ html(ng-app='CMS')
                     div(ng-init='getTags()')
                         select(ng-model='search', ng-options='tag.name for tag in Tags')
 
+                div(ng-controller='categoryController')
+                    h2 Categories:
+                    div(ng-init='getCategories()')
+                        select(ng-model='search', ng-options='category.name for category in Categories')
+
 
 
 
