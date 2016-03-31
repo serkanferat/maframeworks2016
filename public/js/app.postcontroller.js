@@ -6,7 +6,8 @@
     .controller('postController', postController);
   function postController($scope, postService){
 	  
-   
+           console.log($scope.current_user);
+
         $scope.tag_selection=[];
 		  // toggle selection for a given tag name
 		  $scope.toggleTagSelection = function toggleTagSelection(tagName) {
