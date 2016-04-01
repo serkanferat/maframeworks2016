@@ -1,12 +1,13 @@
 (function(){
-  "use strict";
-  
+
+
   angular
     .module('CMS')
     .controller('postController', postController);
-  function postController($scope, postService){
-	  
-           console.log($scope.current_user);
+
+    function postController($scope, postService){
+
+        console.log($scope.current_user);
 
         $scope.tag_selection=[];
 		  // toggle selection for a given tag name
@@ -24,8 +25,10 @@
 		       $scope.tag_selection.push(tagName);
 		     }
 		   };
-   
-        $scope.cat_selection=[];
+
+
+
+      $scope.cat_selection=[];
 		  // toggle selection for a given category name
 		  $scope.toggleCatSelection = function toggleCatSelection(catName) {
 
@@ -43,56 +46,104 @@
 		   };
 
 
-      $scope.customFilter = function (dataa) {
-       console.log(dataa);
-      };
-
       var modelPosts = function(data){
-      $scope.Posts = data;
-    }
-	
-   
-    var modelPost = function(data){
-      $scope.Post = data;
+        $scope.Posts = data;
+      }
 
-    }
-   
-	$scope.getPosts = function(){
-    
+      var modelPost = function(data){
+        $scope.Post = data;
+      }
+
+      var modelTags = function(data){
+        $scope.Tags = data;
+      }
+
+      var modelCategories = function(data){
+        $scope.Categories = data;
+      }
+
+  $scope.getPosts = function(){
     	postService.getPosts()
-			.then(modelPosts);
-    }
-	
-	
-	$scope.getPost = function(postid){
+  		.then(modelPosts);
+  }
 
+
+	$scope.getPost = function(postid){
     	postService.getPost(postid)
 			.then(modelPost);
-      
-    }	
-	
+  }
+
+  //tags
+  $scope.getTags = function(){
+      postService.getTags()
+      .then(modelTags);
+  }
+
+  var updateSelectedTags = function() {
+    $scope.tagsSelected = postService.getSelectedTags;
+  }
+
+  $scope.tagFilter = function(post) {
+    return postService.tagFilter(post);
+  }
+
+  $scope.tagsChange = function(tag) {
+    postService.tagsChange(tag);
+    updateSelectedTags();
+  }
+
+
+  //Categories
+  $scope.getCategories = function(){
+      postService.getCategories()
+      .then(modelCategories);
+  }
+
+
+  var updateSelectedCategories = function() {
+    $scope.categoriesSelected = postService.getSelectedCategories;
+  }
+
+
+
+  $scope.categoryFilter = function(post) {
+    return postService.categoryFilter(post);
+  }
+
+
+  $scope.categoriesChange = function(category) {
+    postService.categoriesChange(category);
+    updateSelectedCategories();
+  }
+
+  updateSelectedTags();
+  updateSelectedCategories();
+
+
+
+
 	$scope.createPost = function(post){
         post.tags = $scope.tag_selection;
         post.categories = $scope.cat_selection;
         postService.createPost(post);
         console.log(post);
-		postService.getPosts()
-    		.then(modelPosts);
+		    postService.getPosts()
+    		  .then(modelPosts);
     }
-		
-	
+
+
 	$scope.updatePost = function(post){
     	postService.updatePost(post);
-		postService.getPost(post.postid)
-    		.then(modelPost);
+  		postService.getPost(post.postid)
+      		.then(modelPost);
     }
 
 	$scope.deletePost = function(postid){
     	postService.deletePost(postid);
-		postService.getPosts()
-    		.then(modelPosts);
-    }
-    
+  		postService.getPosts()
+      		.then(modelPosts);
+      }
   }
-  
-})();
+
+
+}());

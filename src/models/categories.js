@@ -14,7 +14,7 @@ Categories.remove({}, function(err, data) {
     )
     Categories.create(
         {
-            name: 'Umbraco CMS system'
+            name: 'Umbraco CMS System'
         }
     )
 })

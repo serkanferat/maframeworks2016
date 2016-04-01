@@ -13,11 +13,11 @@ var PostsSchema = {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Users'
         },
-        
+
     }],
 
     tags: Array,
-	categories: Array,
+	  categories: Array,
 
 //  tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tags' }],
 //	categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Categories' }]
@@ -31,20 +31,20 @@ Posts.remove({}, function(err, data) {
   mongoose.model('Users').find({}, function(err, users) {
     users.forEach(function(user) {
     Posts.create(
-   {
-    title: "Test Title",
-    content: "Test Content",
-    postedBy: user._id,
-    comments: [{
-        text: "Test Comment!",
-        postedBy: user._id
-      }],
-	tags:[],
-	categories:[],
+     {
+      title: "Test Title",
+      content: "Test Content",
+      postedBy: user._id,
+      comments: [{
+          text: "Test Comment!",
+          postedBy: user._id
+        }],
+    	tags:["Automotive"],
+    	categories:["Umbraco CMS System"],
+        }
+      )
+      });
     }
-  )
-    });
-  }
 );
 
 })
