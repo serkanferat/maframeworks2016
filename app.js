@@ -53,8 +53,12 @@ app.use('/api/categories/', categoryRouter);
 // ---------------------------------------
 
 
- mongoose.connect('mongodb://nikolay:1234@ds011880.mlab.com:11880/cmsproject');
-
+var mongoURI = "mongodb://nikolay:1234@ds011830.mlab.com:11830/cmsproject";
+var MongoDB = mongoose.connect(mongoURI).connection;
+MongoDB.on('error', function(err) { console.log(err.message); });
+MongoDB.once('open', function() {
+  console.log("mongodb connection open");
+});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error'));
@@ -97,3 +101,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+app.listen(3000);
