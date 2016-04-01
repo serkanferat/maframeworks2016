@@ -52,7 +52,6 @@ app.use('/api/categories/', categoryRouter);
 // Database
 // ---------------------------------------
 
-  //mongoose.connect('mongodb://localhost/CMS');
 
  mongoose.connect('mongodb://nikolay:1234@ds011880.mlab.com:11880/cmsproject');
 
