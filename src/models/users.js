@@ -3,10 +3,15 @@ var mongoose = require('mongoose');
 var Schema = {
   username: String,
   password: String,
-  group: String
+  group: String,
+    email : String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 };
 
+
 var Users = mongoose.model("Users", Schema, "users");
+
 
 
 
@@ -15,7 +20,8 @@ Users.remove({}, function(err, data) {
     {
       username: 'admin',
       password: 'admin',
-      group: 'admin'
+      group: 'admin',
+      email: 'nikolay.stanchev.kolev@gmail.com'
     }
   )
 Users.create(

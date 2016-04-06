@@ -51,6 +51,13 @@ authRouter.route('/login')
 	});
 
 
+//
+//authRouter.get('/forgot', function(req, res) {
+//	res.render('forgot', {
+//		user: req.user
+//	});
+//});
+
 authRouter.route('/profile')
 	.all(function (req, res, next) {
 		if (!req.user) {

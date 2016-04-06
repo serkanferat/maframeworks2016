@@ -7,6 +7,11 @@ var logger = require('morgan');
 var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
+var nodemailer = require('nodemailer');
+var bcrypt = require('bcrypt-nodejs');
+var async = require('async');
+var crypto = require('crypto');
+var flash = require('express-flash');
 
 var app = express();
 
@@ -26,6 +31,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'OJO90y7hHGIGfdlaRHW535asu648rsHTWHszr'}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // ---------------------------------------
 // Auth/Passport
@@ -41,6 +49,8 @@ var authRouter = require('./src/routes/authRouter');
 var postRouter = require('./src/routes/postRouter');
 var tagRouter = require('./src/routes/tagRouter');
 var categoryRouter = require('./src/routes/categoryRouter');
+var forgotRouter = require('./src/routes/forgotRouter');
+var resetRouter = require('./src/routes/resetRouter');
 
 app.use('/', baseRouter);
 app.use('/users', userRouter);
@@ -48,23 +58,15 @@ app.use('/auth', authRouter);
 app.use('/api/posts/', postRouter);
 app.use('/api/tags/', tagRouter);
 app.use('/api/categories/', categoryRouter);
+app.use('/forgot/', forgotRouter);
+app.use('/reset/', resetRouter);
 // ---------------------------------------
 // Database
 // ---------------------------------------
 
+mongoose.connect('mongodb://localhost/CMS');
+//mongoose.connect('mongodb://nikolay:nikolay@ds011810.mlab.com:11810/projectcms');
 
-var mongoURI = "mongodb://nikolay:1234@ds011830.mlab.com:11830/cmsproject";
-var MongoDB = mongoose.connect(mongoURI).connection;
-MongoDB.on('error', function(err) { console.log(err.message); });
-MongoDB.once('open', function() {
-  console.log("mongodb connection open");
-});
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection error'));
-db.once('open', function callback(){
-	console.log('Mongoose is alive');
-});
 
 // ---------------------------------------
 // catch 404 and forward to error handler
@@ -100,4 +102,6 @@ app.use(function(err, req, res, next) {
 });
 
 
+
 module.exports = app;
+app.listen(3000);

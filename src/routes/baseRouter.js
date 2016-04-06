@@ -38,5 +38,12 @@ baseRouter.get('/categories/:categoryid', function(req, res, next) {
     res.render('category-edit', { categoryid: req.params.categoryid });
 });
 
+baseRouter.get('/forgot', function(req, res, next) {
+    res.render('forgot', { user:req.user});
+});
+
+baseRouter.get('/reset/:token', function(req, res, next) {
+    res.render('reset', { user:req.user});
+});
 
 module.exports = baseRouter;
