@@ -22,10 +22,11 @@ userRouter.route('/').post(function (req, res) {
 		var user = {
 			username: req.body.username,
 			password: req.body.password,
+			email: req.body.email,
             group: req.body.group,
 		};
 	
-		if (typeof req.body.username === "undefined" || typeof req.body.password === "undefined"|| typeof req.body.group === "undefined")
+		if (typeof req.body.username === "undefined" || typeof req.body.password === "undefined"|| typeof req.body.group === "undefined" || typeof req.body.email === "undefined")
 		{
 			res.json({message:"Error"});
 		}else
@@ -55,6 +56,7 @@ userRouter.put('/:userid', function(req, res, next) {
 
 		user.username = req.body.username;
 		user.password = req.body.password;
+		user.password = req.body.email;
 		
 		user.save(function (err) {
 		if (err) res.json({message:"Error"});

@@ -12,7 +12,8 @@ authRouter.route('/register').post(function (req, res) {
 		//mongoose.createConnection('localhost', 'CMS');
 		var user = {
 			username: req.body.userName,
-			password: req.body.password
+			password: req.body.password,
+			email : req.body.email
 		};
 		
 		if (req.body.password !== req.body.repeatPassword){

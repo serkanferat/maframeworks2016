@@ -6,17 +6,17 @@ var CategoriesSchema = {
 
 var Categories = mongoose.model("Categories", CategoriesSchema, "categories");
 
-Categories.remove({}, function(err, data) {
-    Categories.create(
-        {
-            name: 'Development environment'
-        }
-    )
-    Categories.create(
-        {
-            name: 'Umbraco CMS System'
-        }
-    )
-})
+//Categories.remove({}, function(err, data) {
+//    Categories.create(
+//        {
+//            name: 'Development environment'
+//        }
+//    )
+//    Categories.create(
+//        {
+//            name: 'Umbraco CMS System'
+//        }
+//    )
+//})
 
 module.exports = Categories;
