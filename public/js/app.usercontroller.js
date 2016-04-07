@@ -14,7 +14,6 @@
 	
     var modelUser = function(data){
       $scope.User = data;
-      console.log($scope.User);
     }
 
 	

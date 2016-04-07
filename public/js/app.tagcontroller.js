@@ -15,7 +15,6 @@
 
         var modelTag = function(data){
             $scope.Tag = data;
-            console.log($scope.Tag);
         }
 
 
@@ -40,7 +39,6 @@
 
         $scope.updateTag = function(tag){
             console.log(tag);
-            tagService.updateTag(tag);
             tagService.getTag(tag.tagid)
                 .then(modelTag);
         }

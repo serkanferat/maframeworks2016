@@ -7,7 +7,6 @@
 
     function postController($scope, postService){
 
-        console.log($scope.current_user);
 
         $scope.tag_selection=[];
 		  // toggle selection for a given tag name
@@ -126,7 +125,6 @@
         post.tags = $scope.tag_selection;
         post.categories = $scope.cat_selection;
         postService.createPost(post);
-        console.log(post);
 		    postService.getPosts()
     		  .then(modelPosts);
     }

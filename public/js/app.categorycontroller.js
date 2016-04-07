@@ -14,7 +14,6 @@
 
         var modelCategory = function(data){
             $scope.Category = data;
-            console.log($scope.Category);
         }
 
 
@@ -39,7 +38,6 @@
 
         $scope.updateCategory = function(category){
             console.log(category);
-            categoryService.updateCategory(category);
             categoryService.getCategory(category.categoryid)
                 .then(modelCategory);
         }

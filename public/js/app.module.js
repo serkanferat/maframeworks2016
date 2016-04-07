@@ -21,7 +21,6 @@
   return {
     add: function(stateName) {
     var views = JSON.parse(localStorage.views);
-    console.log(views);
     views[stateName] = views[stateName] || 0;
     ++views[stateName];
     localStorage.views = JSON.stringify(views);

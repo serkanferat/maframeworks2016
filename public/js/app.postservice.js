@@ -75,7 +75,6 @@
 				return $http.get("/api/tags/")
 						.then(function(response){
 								return response.data;
-								console.log("tags" + response.data);
 						})
 		};
 
@@ -93,20 +92,17 @@
 			}
 			else {
 				tagsSelected.push(tag);
-				console.log("selected tag/(s): " + tagsSelected);
 			}
 		}
 
 		var tagFilter = function(post){
         if (tagsSelected.length > 0) {
-					console.log("post's tags" + post.tags);
             if (anyMatchInArray(tagsSelected, post.tags) != true){
 								return;
 
             }
 
         }
-				console.log("here");
         return post;
   	}
 
@@ -116,7 +112,6 @@
 				return $http.get("/api/categories/")
 						.then(function(response){
 								return response.data;
-								console.log("categories" + response.data);
 						})
 		};
 
@@ -131,19 +126,16 @@
 			}
 			else {
 				categoriesSelected.push(category);
-				console.log("selected category(s): " + categoriesSelected);
 			}
 		}
 
 		var categoryFilter = function(post){
         if (categoriesSelected.length > 0) {
-						console.log("post's categories" + post.categories)
             if (anyMatchInArray(categoriesSelected, post.categories) != true){
 								return;
 								console.log("post's categories"+ post.categories);
             }
         }
-				console.log("here");
         return post;
   	}
 
