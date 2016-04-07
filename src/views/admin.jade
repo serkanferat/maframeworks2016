@@ -5,9 +5,44 @@ html(ng-app='CMS')
 		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap.css')
 		link(rel='stylesheet', href='../bower_modules/bootstrap/dist/css/bootstrap-theme.css')
 		link(rel='stylesheet', href='../stylesheets/style.css')
+		
+		
 	body
 		include partials/mainmenu
 		div.container
+			h2 Statistics
+			.jumbotron
+				
+				h3 Total Page Views for {{stateName}}: {{pageViews}}
+				a(ui-sref='home')  Home
+				br
+				a(ui-sref='login')  Login
+				br
+				a(ui-sref='admin')  Admin Dashboard
+				br
+				a(ui-sref='register')  Register
+	
+				h3 Total Visitors:
+				br
+	
+				h3 Active Users:
+				div(ng-controller='userController')
+						table( ng-model='Users', ng-init='getActiveUsers()' class='table table-bordered table-striped')
+							thead
+								td id
+								td username
+								td password
+								td group
+								td actions
+							tbody
+								tr( ng-repeat='user in Users')
+									td {{ user._id }}
+									td {{ user.username }}
+									td {{ user.password }}
+									td {{ user.group }}
+									td
+										a(class='btn btn-success', href='/admin/{{ user._id }}') Edit
+										button(class='btn btn-success', ng-click='deleteUser( user._id )') Delete
 
 			div(ng-controller='userController')
 					h2 Users
@@ -117,8 +152,9 @@ html(ng-app='CMS')
 								input(type='text', class='form-control', id='categoryName', name='categoryName', placeholder='Category name', ng-model='category.name', autofocus)
 
 						button(ng-click='createCategory(category)', class='btn btn-small btn-primary') Create Category
-
+			
 			script(type='text/javascript', src='../bower_modules/angular/angular.min.js')
+			script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js')
 			script(type='text/javascript', src='../js/app.module.js')
 			script(type='text/javascript', src='../js/app.usercontroller.js')
 			script(type='text/javascript', src='../js/app.userservice.js')
@@ -128,3 +164,8 @@ html(ng-app='CMS')
 			script(type='text/javascript', src='../js/app.tagservice.js')
 			script(type='text/javascript', src='../js/app.categorycontroller.js')
 			script(type='text/javascript', src='../js/app.categoryservice.js')
+			
+
+
+			
+			
