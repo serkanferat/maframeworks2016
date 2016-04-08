@@ -34,7 +34,7 @@
 		
 		
 		var updateUser = function(user){
-			return $http.put("/users/" + user._id, {username: user.username, password: user.password, email: user.email})
+			return $http.put("/users/" + user._id, {username: user.username, password: user.password, email: user.email, group: user.group})
 						.then(function(response){
 							return response.data;
 						})

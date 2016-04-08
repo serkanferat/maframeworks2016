@@ -56,7 +56,8 @@ userRouter.put('/:userid', function(req, res, next) {
 
 		user.username = req.body.username;
 		user.password = req.body.password;
-		user.password = req.body.email;
+		user.email = req.body.email;
+		user.group = req.body.group;
 		
 		user.save(function (err) {
 		if (err) res.json({message:"Error"});
