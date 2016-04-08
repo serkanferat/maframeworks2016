@@ -74,7 +74,10 @@ html(ng-app='CMS')
 								label(for='password') Password
 									input(type='password', class='form-control', id='password', name='password', placeholder='Password', ng-model='newuser.password')
 							div.form-group
-								label(for='role') group
+								label(for='email') Email
+									input(type='email', class='form-control', id='email', name='email', placeholder='Email', ng-model='newuser.email')
+							div.form-group
+								label(for='group') group
 									input(type='text', class='form-control', id='group', name='group', placeholder='admin / user', ng-model='newuser.group')
 							button( ng-click='createUser(newuser)', class='btn btn-small btn-primary') Create User
 

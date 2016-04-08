@@ -36,7 +36,6 @@
 
 		
 	$scope.updateUser = function(user){
-		console.log(user);
     	userService.updateUser(user);
 		userService.getUser(user.userid)
     		.then(modelUser);

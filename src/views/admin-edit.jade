@@ -12,14 +12,15 @@ html( ng-app='CMS')
 				div.form-group
 					label(for="username") Username:
 						input(type="text", class="form-control", id="username", name="username", placeholder="Username", ng-model="User.username", autofocus)
-
 				div.form-group
 					label(for="password") Password:
 						input(type="password", class="form-control", id="password", name="password", placeholder="Password", ng-model="User.password")
 				div.form-group
+					label(for='email') Email
+						input(type='email', class='form-control', id='email', name='email', placeholder='Email', ng-model='User.email')
+				div.form-group
 					label(for="group") Group: (Admin/User/Author)
-						input(type="group", class="form-control", id="group", name="group", placeholder="Admin/User/Author", ng-model="User.group")
-						
+						input(type="text", class="form-control", id="group", name="group", placeholder="Admin/User/Author", ng-model="User.group")
 				button( ng-click="updateUser(User)", class="btn btn-small btn-primary") Update User
 
 		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
