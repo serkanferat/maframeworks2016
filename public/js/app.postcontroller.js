@@ -141,7 +141,8 @@
   		postService.getPosts()
       		.then(modelPosts);
       }
-  }
+
+ }
 
 
 }());
