@@ -17,11 +17,11 @@ html( ng-app='CMS')
 					label(for="content") Content
 						input(type="text", class="form-control", id="content", name="content",  ng-model="Post.content")
 
-				button( ng-click="updatePost(Post)", class="btn btn-small btn-primary") Update Post
-
+				button( ng-click="updatePost(Post)", class="btn btn-small btn-primary",onclick="window.location = '/admin';") Update Post
+				&nbsp;
+				button( class="btn btn-small btn-primary",onclick="window.location = '/admin';") Cancel
 		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js')
 		script(type="text/javascript", src="../js/app.module.js")
 		script(type="text/javascript", src="../js/app.postcontroller.js")
 		script(type="text/javascript", src="../js/app.postservice.js")
-

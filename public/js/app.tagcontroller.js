@@ -39,6 +39,7 @@
 
         $scope.updateTag = function(tag){
             console.log(tag);
+            tagService.updateTag(tag);
             tagService.getTag(tag.tagid)
                 .then(modelTag);
         }

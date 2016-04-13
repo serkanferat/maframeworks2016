@@ -38,6 +38,7 @@
 
         $scope.updateCategory = function(category){
             console.log(category);
+            categoryService.updateCategory(category);
             categoryService.getCategory(category.categoryid)
                 .then(modelCategory);
         }

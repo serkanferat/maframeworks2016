@@ -21,12 +21,12 @@ html( ng-app='CMS')
 				div.form-group
 					label(for="group") Group: (Admin/User/Author)
 						input(type="text", class="form-control", id="group", name="group", placeholder="Admin/User/Author", ng-model="User.group")
-				button( ng-click="updateUser(User)", class="btn btn-small btn-primary") Update User
+				button( ng-click="updateUser(User)", class="btn btn-small btn-primary",onclick="window.location = '/admin';") Update User
+				&nbsp;
+				button( class="btn btn-small btn-primary",onclick="window.location = '/admin';") Cancel
 
 		script(type="text/javascript", src="../bower_modules/angular/angular.min.js")
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js')
 		script(type="text/javascript", src="../js/app.module.js")
 		script(type="text/javascript", src="../js/app.usercontroller.js")
 		script(type="text/javascript", src="../js/app.userservice.js")
-
-
