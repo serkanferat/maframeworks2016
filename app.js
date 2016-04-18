@@ -64,8 +64,8 @@ app.use('/reset/', resetRouter);
 // Database
 // ---------------------------------------
 
-mongoose.connect('mongodb://localhost/CMS');
-//mongoose.connect('mongodb://nikolay:nikolay@ds011810.mlab.com:11810/projectcms');
+//mongoose.connect('mongodb://localhost/CMS');
+ mongoose.connect('mongodb://nikolay:1234@ds011810.mlab.com:11810/projectcms');
 
 
 // ---------------------------------------
