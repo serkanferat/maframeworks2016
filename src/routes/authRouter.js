@@ -41,7 +41,8 @@ authRouter.get('/login', function(req, res, next) {
 
 authRouter.route('/login')
 	.post(passport.authenticate('local', {
-		failureRedirect: '/auth/login'
+		failureRedirect: '/auth/login',
+		failureFlash: true
 	}), function (req, res) {
 		if(req.user && req.user.group === "author"){
 			res.render('profile',{user:req.user});

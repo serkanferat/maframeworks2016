@@ -12,11 +12,14 @@ module.exports = function () {
 		Users.findOne(
 			{username: username},
 			function (err, results) {
-                        if (results.password === password) {
+                        if (results === null) {
+                            return done(null, false, {message: 'Error - No User!'});
+                        }
+                        else if (results.password === password) {
                             var user = results;
-                            done(null, user);
+                            return done(null, user);
                         } else {
-                            done(null, false, {message: 'Bad password', username: username});
+                            return done(null, false, {message: 'Bad password', username: username});
                         }
 
                     });
