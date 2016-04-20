@@ -9,7 +9,7 @@ module.exports = function () {
         },
         function (username, password, done) {
             var url =
-                'mongodb://localhost:27017/CMS';
+                'mongodb://nikolay:1234@ds011810.mlab.com:11810/projectcms';
 
             mongodb.connect(url, function (err, db) {
                 var collection = db.collection('users');
